@@ -61,30 +61,29 @@ and explicitely specify which parts you want to see. The 4 corner areas are only
 when the border that intersect at this corner are enabled.
 
 When there is a common="y" with image tag, the image will be loaded only from data/skins/common in stk-code.
+
+Any information not specified in this theme will be inherited from the specified base theme,
+if any.  To specify a base theme, add base_theme="themename" to the <skin> tag.
+
+To use an icon theme, place the replacement icons (PNG or SVG) into [skin folder]/data/gui/icons
+STK will prefer these icons first, if not found it will fallback to icons from the base theme(s).
 -->
 
 <skin name="DeatSkin" author="LCP and NickerAban">
 
 <!--
 Here you can configure advanced theming rules for this skin
-Currently STK supports:
-1. Icon theme
-2. Font
 
-To allow icon theme, use the tag icon_theme="y" and then place the replacement png into
-(local skin folder)/data/gui/icons, STK will prefer those first, if not found it will fallback to bundled icon.
+For TTF specify the list like the following, for normal and digit ttf it will be added at the beginning of the
+font list in STK, so those TTF will be used first, and any missing characters will be rendered from the base
+theme font list. For color emoji ttf it will replace the base theme color emoji directly. You are not required
+to specify all types of ttf.
 
-For TTF specify the list like the following, for normal and digit ttf it will be added in the beginning of font
-list in STK, so those TTF will be used first, and any missing character will be rendered from the bundled font
-list. For color emoji ttf it will be replace the bundled color emoji directly. You are not required to specify
-all types of ttf.
-<advanced icon_theme="y"
-          normal_ttf="xxx.ttf yyy.ttf"
+<advanced normal_ttf="xxx.ttf yyy.ttf"
           digit_ttf="zzz.ttf"
           color_emoji_ttf="www.ttf"/>
 -->
-<advanced icon_theme="y"
-          normal_ttf="Inter-UI-Black.ttf NotoSansThai-Black.ttf NotoSansHebrew-Black.ttf NotoSansArabicUI-Black.ttf" />
+<advanced normal_ttf="NotoSansCJKjp-Medium.ttf" />
 
 <!--  Stateless -->
 <element type="background" image="background.jpg" />
@@ -208,6 +207,19 @@ all types of ttf.
     left_border="110" right_border="110" top_border="0" bottom_border="36"
     preserve_h_aspect_ratios="true" hborder_out_portion="0.0" />
 
+<!-- color spinner in kart color selection -->
+<element type="spinner_rainbow" state="neutral" image="spinner_rainbow.png"
+      left_border="104" right_border="104" top_border="0" bottom_border="36"
+      preserve_h_aspect_ratios="true" hborder_out_portion="0.0"/>
+
+<element type="spinner_rainbow" state="focused" image="spinner_rainbow_focus.png"
+      left_border="104" right_border="104" top_border="0" bottom_border="36"
+      preserve_h_aspect_ratios="true" hborder_out_portion="0.0"/>
+
+<element type="spinner_rainbow" state="deactivated" image="spinner_rainbow_deactivated.png"
+      left_border="104" right_border="104" top_border="0" bottom_border="36"
+      preserve_h_aspect_ratios="true" hborder_out_portion="0.0"/>
+
 <!-- player name spinner color in multiplayer-->
 <element type="spinner1" state="neutral" image="spinner_red.png"
       left_border="110" right_border="110" top_border="0" bottom_border="36"
@@ -242,6 +254,8 @@ all types of ttf.
 <!-- are always in neutral state for now. No splitting into 9 areas is done; the image is just stretched.
      Note: the body of a guage is the same as for for spinners. -->
 <element type="gaugefill" image="spinner_fill.png" />
+<!-- used for the color slider. -->
+<element type="gaugefillrainbow" common="y" image="gauge_fill_rainbow.png"/>
 
 <!-- Lists are always in neutral state for now -->
 <element type="list" image="section.png"
