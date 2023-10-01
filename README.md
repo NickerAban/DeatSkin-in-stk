@@ -1,2 +1,3 @@
 # DeatSkin-in-stk
-there I am editing images and textures and etc.
+New skin for stk skins, New menu appearance.
+
