@@ -83,7 +83,7 @@ to specify all types of ttf.
           digit_ttf="zzz.ttf"
           color_emoji_ttf="www.ttf"/>
 -->
-<advanced normal_ttf="NotoSansCJKjp-Medium.otf" />
+<advanced normal_ttf="Asap-Bold.ttf" />
 
 <!--  Stateless -->
 <element type="background" image="background.jpg" />
